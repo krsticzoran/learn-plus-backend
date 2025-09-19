@@ -373,26 +373,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
-  collectionName: 'blogs';
+export interface ApiOngoingProjectOngoingProject
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'ongoing_projects';
   info: {
-    displayName: 'blog';
-    pluralName: 'blogs';
-    singularName: 'blog';
+    displayName: 'ongoingProject';
+    pluralName: 'ongoing-projects';
+    singularName: 'ongoing-project';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    coordinator: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    endDate: Schema.Attribute.Date & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ongoing-project.ongoing-project'
+    > &
       Schema.Attribute.Private;
+    partner: Schema.Attribute.Component<'partner.partner', true>;
+    projectCode: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    released: Schema.Attribute.Date;
     slug: Schema.Attribute.UID<'title'>;
+    startDate: Schema.Attribute.Date & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -909,7 +917,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::blog.blog': ApiBlogBlog;
+      'api::ongoing-project.ongoing-project': ApiOngoingProjectOngoingProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
