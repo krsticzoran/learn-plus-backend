@@ -15,10 +15,6 @@
       "type": "string",
       "required": true
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
-    },
     "projectCode": {
       "type": "string"
     },
@@ -34,10 +30,11 @@
       "type": "string",
       "required": true
     },
-    "partner": {
+    "partners": {
       "type": "component",
       "component": "partner.partner",
-      "repeatable": true
+      "repeatable": true,
+      "required": true
     }
   }
 }

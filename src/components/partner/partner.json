@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "Data": {
+    "content": {
       "type": "string",
       "required": true
     }

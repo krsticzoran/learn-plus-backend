@@ -6,7 +6,7 @@ export interface PartnerPartner extends Struct.ComponentSchema {
     displayName: 'partner';
   };
   attributes: {
-    Data: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

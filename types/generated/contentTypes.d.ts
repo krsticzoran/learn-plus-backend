@@ -396,10 +396,10 @@ export interface ApiOngoingProjectOngoingProject
       'api::ongoing-project.ongoing-project'
     > &
       Schema.Attribute.Private;
-    partner: Schema.Attribute.Component<'partner.partner', true>;
+    partners: Schema.Attribute.Component<'partner.partner', true> &
+      Schema.Attribute.Required;
     projectCode: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
     startDate: Schema.Attribute.Date & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
