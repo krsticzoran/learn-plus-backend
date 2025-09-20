@@ -20,6 +20,15 @@
       "targetField": "title",
       "required": true
     },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
     "startDate": {
       "type": "date",
       "required": true
