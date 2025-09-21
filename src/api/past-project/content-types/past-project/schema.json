@@ -47,6 +47,10 @@
         "images",
         "files"
       ]
+    },
+    "description": {
+      "type": "string",
+      "required": true
     }
   }
 }

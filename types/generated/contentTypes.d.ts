@@ -425,6 +425,7 @@ export interface ApiPastProjectPastProject extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
     endDate: Schema.Attribute.Date & Schema.Attribute.Required;
     gallery: Schema.Attribute.Media<'images' | 'files', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
