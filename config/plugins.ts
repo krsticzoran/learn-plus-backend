@@ -1,14 +1,12 @@
-module.exports = () => {
-  console.log("🔎 Cloudinary config: using direct values");
-
+module.exports = ({ env }) => {
   return {
     upload: {
       config: {
         provider: "cloudinary",
         providerOptions: {
-          cloud_name: "dgvpycwpj",
-          api_key: "739389835857721",
-          api_secret: "7kJ6Ia2dCsk466CQYcNZdkdIfh0",
+          cloud_name: env("CLOUDINARY_NAME"),
+          api_key: env("CLOUDINARY_KEY"),
+          api_secret: env("CLOUDINARY_SECRET"),
         },
         actionOptions: {
           upload: {},
