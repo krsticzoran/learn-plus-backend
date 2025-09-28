@@ -385,11 +385,16 @@ export interface ApiOngoingProjectOngoingProject
     draftAndPublish: true;
   };
   attributes: {
+    content: Schema.Attribute.RichText;
     coordinator: Schema.Attribute.String & Schema.Attribute.Required;
+    cover: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
     endDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    gallery: Schema.Attribute.Media<'images' | 'files', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -400,6 +405,7 @@ export interface ApiOngoingProjectOngoingProject
       Schema.Attribute.Required;
     projectCode: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     startDate: Schema.Attribute.Date & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
